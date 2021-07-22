@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Screens from './src/screens';
 import * as S from './src/global-styles';
 

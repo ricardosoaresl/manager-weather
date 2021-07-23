@@ -8,13 +8,13 @@ export const DrawerContainer = styled.View`
 export const DrawerHeaderContainer = styled.View`
   flex-direction: row;
   padding: 40px 0 40px 16px;
-  border-bottom-color: #a4a3af;
+  border-bottom-color: ${({ theme }) => theme.colors.textAccent};
   border-bottom-width: 1px;
 `;
 
 const AVATAR_SIZE = 70;
 export const DrawerHeaderAvatarContainer = styled.View`
-  background-color: #ec7000;
+  background-color: ${({ theme }) => theme.colors.primary};
   border-radius: ${AVATAR_SIZE / 2}px;
   height: ${AVATAR_SIZE};
   width: ${AVATAR_SIZE};
@@ -33,12 +33,12 @@ export const DrawerHeaderProfileInfoContainer = styled.View`
 export const DrawerHeaderProfileName = styled.Text`
   font-size: 20px;
   font-weight: 600;
-  color: #535161;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const DrawerHeaderProfileEmail = styled.Text`
   font-size: 14px;
-  color: #535161;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const DrawerItemContainer = styled.View`
@@ -48,15 +48,15 @@ export const DrawerItemContainer = styled.View`
   margin: 0;
 `;
 
-export const DrawerItemMenu = styled(DrawerItem).attrs({
+export const DrawerItemMenu = styled(DrawerItem).attrs(({ theme }) => ({
   labelStyle: {
     fontSize: 16,
     fontWeight: 'bold',
     paddingBottom: 16,
     paddingTop: 16,
   },
-  pressColor: '#ec7000',
-})``;
+  pressColor: theme.colors.text,
+}))``;
 
 export const DrawerFooterContainer = styled.View`
   flex-direction: row;
@@ -67,11 +67,11 @@ export const DrawerFooterContainer = styled.View`
 export const DrawerFooterAppNameText = styled.Text`
   font-size: 14px;
   font-weight: bold;
-  color: #ec7000;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const DrawerFooterAppVersionText = styled.Text`
   justify-content: flex-end;
   text-align: right;
-  color: #535161;
+  color: ${({ theme }) => theme.colors.text};
 `;

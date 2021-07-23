@@ -2,6 +2,7 @@ import React from 'react';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
 import * as S from './styles';
 import { ScrollView } from 'react-native-gesture-handler';
+import { translate } from '../../translations';
 
 const DrawerComponent: React.FC<DrawerContentComponentProps> = () => {
   return (
@@ -17,15 +18,15 @@ const DrawerComponent: React.FC<DrawerContentComponentProps> = () => {
       </S.DrawerHeaderContainer>
       <S.DrawerItemContainer>
         <ScrollView>
-          <S.DrawerItemMenu label="Link menu 01" onPress={() => console.log('link menu 01')} />
-          <S.DrawerItemMenu label="Link menu 02" onPress={() => console.log('link menu 02')} />
-          <S.DrawerItemMenu label="Link menu 03" onPress={() => console.log('link menu 03')} />
-          <S.DrawerItemMenu label="Link menu 04" onPress={() => console.log('link menu 04')} />
+          <S.DrawerItemMenu label={translate('DrawerItemMenu01')} onPress={() => console.log('link menu 01')} />
+          <S.DrawerItemMenu label={translate('DrawerItemMenu02')} onPress={() => console.log('link menu 02')} />
+          <S.DrawerItemMenu label={translate('DrawerItemMenu03')} onPress={() => console.log('link menu 03')} />
+          <S.DrawerItemMenu label={translate('DrawerItemMenu04')} onPress={() => console.log('link menu 04')} />
         </ScrollView>
       </S.DrawerItemContainer>
       <S.DrawerFooterContainer>
         <S.DrawerFooterAppNameText>Weather Manager</S.DrawerFooterAppNameText>
-        <S.DrawerFooterAppVersionText>version 0.0.1</S.DrawerFooterAppVersionText>
+        <S.DrawerFooterAppVersionText>{translate('DrawerVersion')} 0.0.1</S.DrawerFooterAppVersionText>
       </S.DrawerFooterContainer>
     </S.DrawerContainer>
   );

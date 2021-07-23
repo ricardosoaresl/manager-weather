@@ -16,8 +16,8 @@ const AVATAR_SIZE = 70;
 export const DrawerHeaderAvatarContainer = styled.View`
   background-color: ${({ theme }) => theme.colors.primary};
   border-radius: ${AVATAR_SIZE / 2}px;
-  height: ${AVATAR_SIZE};
-  width: ${AVATAR_SIZE};
+  height: ${AVATAR_SIZE}px;
+  width: ${AVATAR_SIZE}px;
   align-self: center;
   justify-content: center;
   align-items: center;

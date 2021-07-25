@@ -7,6 +7,8 @@ const ptBr: ITranslations = {
   DrawerItemMenu02: 'Link menu 02 (pt-BR)',
   DrawerItemMenu03: 'Link menu 03 (pt-BR)',
   DrawerItemMenu04: 'Link menu 04 (pt-BR)',
+  //Erros
+  RequestError: 'Ocorreu um erro, tente novamente mais tarde.',
 };
 
 export default ptBr;

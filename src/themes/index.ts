@@ -7,4 +7,6 @@ const availablesThemes = {
   sugestion01: sugestion01Theme,
 };
 
+console.log(ENV);
+
 export default availablesThemes[ENV.THEME];

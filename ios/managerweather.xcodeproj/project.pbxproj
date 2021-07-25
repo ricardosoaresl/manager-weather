@@ -114,7 +114,6 @@
 				E92C57136728F60C8F68030E /* Pods-managerweather-managerweatherTests.debug.xcconfig */,
 				5BE3A9C210EAC1FEB668B52F /* Pods-managerweather-managerweatherTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

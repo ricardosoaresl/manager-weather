@@ -39,22 +39,24 @@ const HomeScreen: React.FC<DrawerScreenProps<RouteDrawerParamList, 'HomeScreen'>
   };
 
   const handleGetWeather = async () => {
-    const location = await getLocation();
+    setTimeout(async () => {
+      const location = await getLocation();
 
-    if (location) {
-      const urlGoogle = formatUrl(GOOGLE_API.GEOCODE, [
-        ENV.GOOGLE_MAPS_API_KEY,
-        location?.latitude,
-        location?.longitude,
-      ]) as GOOGLE_API.GEOCODE;
+      if (location) {
+        const urlGoogle = formatUrl(GOOGLE_API.GEOCODE, [
+          ENV.GOOGLE_MAPS_API_KEY,
+          location?.latitude,
+          location?.longitude,
+        ]) as GOOGLE_API.GEOCODE;
 
-      const resultGoogleApi: IAddressComplete = await getGoogle(urlGoogle);
-      const city = resultGoogleApi.results[0].formatted_address.split(',')[2].split('-')[0];
+        const resultGoogleApi: IAddressComplete = await getGoogle(urlGoogle);
+        const city = resultGoogleApi.results[0].formatted_address.split(',')[2].split('-')[0];
 
-      const url = formatUrl(OPEN_WEATHER.GET, [ENV.OPEN_WEATHER_KEY, city]) as OPEN_WEATHER.GET;
-      const resultWeather: IWeather = await getOpenWeather(url);
-      setWeather(resultWeather);
-    }
+        const url = formatUrl(OPEN_WEATHER.GET, [ENV.OPEN_WEATHER_KEY, city]) as OPEN_WEATHER.GET;
+        const resultWeather: IWeather = await getOpenWeather(url);
+        setWeather(resultWeather);
+      }
+    }, 5000);
   };
 
   const handleGetCityByCoordenates = async (lat: number | undefined, lon: number | undefined) => {

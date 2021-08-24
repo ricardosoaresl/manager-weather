@@ -1,0 +1,51 @@
+desc "Distribute APK to Firebase App Distribution (by local machine)"
+lane :distribute_locally do |options|
+  version_bump() 
+
+  build_apk()
+  
+  # ensure_env_vars(
+  #   env_vars: ["FIREBASE_APP_ID", 'FIREBASE_TOKEN']
+  # )
+  
+  # firebase_app_id = ENV["FIREBASE_APP_ID"]
+  # firebase_token = ENV['FIREBASE_TOKEN']
+
+  
+  # apk_path = lane_context[SharedValues::GRADLE_AAB_OUTPUT_PATH]
+  
+  # firebase_app_distribution(
+  #   app: firebase_app_id,
+  #   groups: "admin",
+  #   release_notes: "Nova versão do app manager weather",
+  #   firebase_cli_token: firebase_token,
+  #   apk_path: apk_path,   
+  #   debug: true,   
+  # )
+
+  # git_push(target: target)
+end
+
+desc "Android Version Bump"
+private_lane :version_bump do |options|  
+  increment_version_name(app_project_dir: '**/app')
+  increment_version_code(app_project_dir: '**/app')
+end
+
+# desc "Git Push Android Changes"
+# private_lane :git_push do |options|
+#   git_username = ENV['FASTLANE_USERNAME']
+#   target = options[:target]
+  
+#   sh("git", "config", "--global", "user.name", git_username) if git_username
+#   sh("git", "pull", "origin", "homolog", "--rebase", "--autostash")
+  
+#   git_commit(path: "*", message: "[Android] Version Bump of #{target} app [skip ci]", skip_git_hooks: true)
+  
+#   push_to_git_remote()
+# end
+
+lane :build_apk do |options|
+  target = options[:target];
+  build_android_app(gradle_path: './gradlew', task: "assemble", flavor: "#{target}", build_type: "Debug") if target
+end

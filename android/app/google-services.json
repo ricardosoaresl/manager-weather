@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1096483491313",
+    "project_id": "manager-weather",
+    "storage_bucket": "manager-weather.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096483491313:android:9a5efee5ae2f9f7255c850",
+        "android_client_info": {
+          "package_name": "com.managerweather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096483491313-0h9imsjshosldv7h89apsh3ivfe47uhu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBB9U2LCm3d1Jkg6Jn4WEAVr014YP8x_Zc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096483491313-0h9imsjshosldv7h89apsh3ivfe47uhu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

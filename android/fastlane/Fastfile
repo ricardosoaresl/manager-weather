@@ -4,24 +4,24 @@ lane :distribute_locally do |options|
 
   build_apk()
   
-  # ensure_env_vars(
-  #   env_vars: ["FIREBASE_APP_ID", 'FIREBASE_TOKEN']
-  # )
+  ensure_env_vars(
+    env_vars: ["FIREBASE_APP_ID", 'FIREBASE_TOKEN']
+  )
   
-  # firebase_app_id = ENV["FIREBASE_APP_ID"]
-  # firebase_token = ENV['FIREBASE_TOKEN']
+  firebase_app_id = ENV["FIREBASE_APP_ID"]
+  firebase_token = ENV['FIREBASE_TOKEN']
 
   
-  # apk_path = lane_context[SharedValues::GRADLE_AAB_OUTPUT_PATH]
+  apk_path = lane_context[SharedValues::GRADLE_AAB_OUTPUT_PATH]
   
-  # firebase_app_distribution(
-  #   app: firebase_app_id,
-  #   groups: "admin",
-  #   release_notes: "Nova versão do app manager weather",
-  #   firebase_cli_token: firebase_token,
-  #   apk_path: apk_path,   
-  #   debug: true,   
-  # )
+  firebase_app_distribution(
+    app: firebase_app_id,
+    groups: "admin",
+    release_notes: "Nova versão do app manager weather",
+    firebase_cli_token: firebase_token,
+    apk_path: apk_path,   
+    debug: true,   
+  )
 
   # git_push(target: target)
 end
@@ -46,6 +46,5 @@ end
 # end
 
 lane :build_apk do |options|
-  target = options[:target];
-  build_android_app(gradle_path: './gradlew', task: "assemble", flavor: "#{target}", build_type: "Debug") if target
+  build_android_app(gradle_path: './gradlew', task: "bundle", build_type: "Release")
 end

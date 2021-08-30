@@ -10,17 +10,14 @@ lane :distribute_locally do |options|
   
   firebase_app_id = ENV["FIREBASE_APP_ID"]
   firebase_token = ENV['FIREBASE_TOKEN']
-
-  
-  apk_path = lane_context[SharedValues::GRADLE_AAB_OUTPUT_PATH]
   
   firebase_app_distribution(
     app: firebase_app_id,
     groups: "admin",
     release_notes: "Nova versão do app manager weather",
     firebase_cli_token: firebase_token,
-    apk_path: apk_path,   
     debug: true,   
+    android_artifact_type:"AAB"
   )
 
   # git_push(target: target)
